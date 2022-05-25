@@ -3,5 +3,54 @@
 <PageTitle>Samochody</PageTitle>
 
 <h1>Lista Samcohodow</h1>
-<p>Poni¿ej znajduje siê lista samochodów</p>
 
+<h1>Lista (@Samochodzie.Count(Samochod => !Samochod.ZROBIONE))</h1>
+
+    @foreach (var Samochod in Samochodzie)
+    {
+<li>
+    <input type="checkbox" @bind="Samochod.ZROBIONE" />
+    <input @bind="Samochod.TYTU£" />
+</li>
+
+
+    }
+<p> Podaj imiê i nazwisko poni¿ej </p>
+
+
+<input placeholder="Imiê i Nazwisko" @bind="newSamochod" />
+
+<button @onclick="AddSamochod" class="btn btn-primary mt 3">Zapisz</button>
+
+
+
+
+
+@code {
+    private List<SamochodItem>
+    Samochodzie = new();
+    private string newSamochod;
+
+    private void AddSamochod()
+    {
+    if (!string.IsNullOrWhiteSpace(newSamochod))
+    {
+    Samochodzie.Add(new SamochodItem { TYTU£ = newSamochod });
+    newSamochod = string.Empty;
+    }
+    }
+    }
+    public class SamochodItem
+    {
+
+    public int ID { get; set; }
+
+    public string IMIE { get; set; }
+
+    public string NAZWISKO { get; set; }
+
+    public string TYTU£{ get; set; }
+
+    public bool ZROBIONE { get; set; }
+
+    }
