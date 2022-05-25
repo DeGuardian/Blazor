@@ -39,7 +39,6 @@ newLista = string.Empty;
 }
 }
 }
-[17:34]
 public class ListaItem
 {
 
