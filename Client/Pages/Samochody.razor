@@ -4,13 +4,13 @@
 
 <h1>Lista Samcohodow</h1>
 
-<h1>Lista (@Samochodzie.Count(Samochod => !Samochod.ZROBIONE))</h1>
+<h1>Lista (@Liœcie.Count(Lista => !Lista.ZROBIONE))</h1>
 
-    @foreach (var Samochod in Samochodzie)
+    @foreach (var Lista in Liœcie)
     {
 <li>
-    <input type="checkbox" @bind="Samochod.ZROBIONE" />
-    <input @bind="Samochod.TYTU£" />
+    <input type="checkbox" @bind="Lista.ZROBIONE" />
+    <input @bind="Lista.TYTU£" />
 </li>
 
 
@@ -18,29 +18,29 @@
 <p> Podaj imiê i nazwisko poni¿ej </p>
 
 
-<input placeholder="Imiê i Nazwisko" @bind="newSamochod" />
+<input placeholder="Imiê i Nazwisko" @bind="newLista" />
 
-<button @onclick="AddSamochod" class="btn btn-primary mt 3">Zapisz</button>
+<button @onclick="AddLista" class="btn btn-primary mt 3">Zapisz</button>
 
 
 
 
 
 @code {
-    private List<SamochodItem>
-    Samochodzie = new();
-    private string newSamochod;
+    private List<ListaItem>
+    Liœcie = new();
+    private string newLista;
 
-    private void AddSamochod()
+    private void AddLista()
     {
-    if (!string.IsNullOrWhiteSpace(newSamochod))
+    if (!string.IsNullOrWhiteSpace(newLista))
     {
-    Samochodzie.Add(new SamochodItem { TYTU£ = newSamochod });
-    newSamochod = string.Empty;
+    Liœcie.Add(new ListaItem { TYTU£ = newLista });
+    newLista = string.Empty;
     }
     }
     }
-    public class SamochodItem
+    public class ListaItem
     {
 
     public int ID { get; set; }
