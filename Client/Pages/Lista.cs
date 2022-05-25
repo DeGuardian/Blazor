@@ -1,8 +1,6 @@
-@page "/samochody"
+@page "/Lista"
 
-<PageTitle>Samochody</PageTitle>
-
-<h1>Lista Samcohodow</h1>
+< PageTitle > Lista </ PageTitle >
 
 < h1 > Lista(@Liœcie.Count(Lista => !Lista.ZROBIONE)) </ h1 >
 
@@ -32,11 +30,11 @@ private string newLista;
 
 private void AddLista()
 {
-if (!string.IsNullOrWhiteSpace(newLista))
-{
-Liœcie.Add(new ListaItem { TYTU£ = newLista });
-newLista = string.Empty;
-}
+    if (!string.IsNullOrWhiteSpace(newLista))
+    {
+        Liœcie.Add(new ListaItem { TYTU£ = newLista });
+        newLista = string.Empty;
+    }
 }
 }
 public class ListaItem
