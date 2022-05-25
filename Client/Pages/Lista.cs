@@ -7,7 +7,7 @@ public class ListaItem
 
     public string NAZWISKO { get; set; }
 
-    public string TYTU£ { get; set; }
+    public string TYTU≈Å { get; set; }
 
     public bool ZROBIONE { get; set; }
 

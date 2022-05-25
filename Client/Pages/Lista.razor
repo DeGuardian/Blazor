@@ -2,21 +2,21 @@
 
 <PageTitle>Lista</PageTitle>
 
-<h1>Lista (@Liúcie.Count(Lista => !Lista.ZROBIONE))</h1>
+<h1>Lista (@Li≈õcie.Count(Lista => !Lista.ZROBIONE))</h1>
 
-    @foreach (var Lista in Liúcie)
+    @foreach (var Lista in Li≈õcie)
     {
         <li>
             <input type="checkbox" @bind="Lista.ZROBIONE" />
-            <input @bind="Lista.TYTU£" />
+            <input @bind="Lista.TYTU≈Å" />
         </li>
 
 
     }
-<p> Podaj imiÍ i nazwisko poniøej </p>
+<p> Podaj imiƒô i nazwisko poni≈ºej </p>
 
 
-<input placeholder="ImiÍ i Nazwisko" @bind="newLista" />
+<input placeholder="Imiƒô i Nazwisko" @bind="newLista" />
 
 <button @onclick="AddLista" class="btn btn-primary mt 3">Zapisz</button>
 
@@ -25,14 +25,14 @@
 
 
 @code {
-    private List<ListaItem> Liúcie = new();
+    private List<ListaItem> Li≈õcie = new();
     private string newLista;
 
     private void AddLista()
     {
         if (!string.IsNullOrWhiteSpace(newLista))
         {
-            Liúcie.Add(new ListaItem { TYTU£ = newLista });
+            Li≈õcie.Add(new ListaItem { TYTU≈Å = newLista });
             newLista = string.Empty;
         }
     }
