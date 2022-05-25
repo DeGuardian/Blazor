@@ -2,23 +2,23 @@
 
 <PageTitle>Samochody</PageTitle>
 
-<h1>Lista (@Samochodzie.Count(Samochod => !Samochod.ZROBIONE))</h1>
+<h1>Lista Samochodow (@Samochodzie.Count(Samochod => !Samochod.CZYUDANE))</h1>
 
     @foreach (var Samochod in Samochodzie)
     {
         <li>
-            <input type="checkbox" @bind="Samochod.ZROBIONE" />
-            <input @bind="Samochod.TYTUŁ" />
+            <input type="checkbox" @bind="Samochod.CZYUDANE" />
+            <input @bind="Samochod.ZAZNACZENIE" />
         </li>
 
 
     }
-<p> Podaj imię i nazwisko poniżej </p>
+<p> Podaj Marke i Model pojazdu </p>
 
 
-<input placeholder="Imię i Nazwisko" @bind="newSamochod" />
+<input placeholder="Marka i Model" @bind="newSamochod" />
 
-<button @onclick="AddSamochod" class="btn btn-primary mt 3">Zatwierdź</button>
+<button @onclick="AddSamochod" class="btn btn-primary mt 2">Zatwierdź</button>
 
 
 
@@ -32,7 +32,7 @@
     {
         if (!string.IsNullOrWhiteSpace(newSamochod))
         {
-            Samochodzie.Add(new SamochodItem { TYTUŁ = newSamochod });
+            Samochodzie.Add(new SamochodItem { ZAZNACZENIE = newSamochod });
             newSamochod = string.Empty;
         }
     }
