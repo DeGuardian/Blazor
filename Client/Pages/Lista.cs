@@ -1,4 +1,4 @@
-public class ListaItem
+public class SamochodItem
 {
 
     public int ID { get; set; }
