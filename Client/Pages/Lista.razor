@@ -1,14 +1,14 @@
-@page "/Lista"
+@page "/Samochody"
 
-<PageTitle>Lista</PageTitle>
+<PageTitle>Samochody</PageTitle>
 
-<h1>Lista (@Liście.Count(Lista => !Lista.ZROBIONE))</h1>
+<h1>Lista (@Samochodzie.Count(Samochod => !Samochod.ZROBIONE))</h1>
 
-    @foreach (var Lista in Liście)
+    @foreach (var Samochod in Samochodzie)
     {
         <li>
-            <input type="checkbox" @bind="Lista.ZROBIONE" />
-            <input @bind="Lista.TYTUŁ" />
+            <input type="checkbox" @bind="Samochod.ZROBIONE" />
+            <input @bind="Samochod.TYTUŁ" />
         </li>
 
 
@@ -16,24 +16,24 @@
 <p> Podaj imię i nazwisko poniżej </p>
 
 
-<input placeholder="Imię i Nazwisko" @bind="newLista" />
+<input placeholder="Imię i Nazwisko" @bind="newSamochod" />
 
-<button @onclick="AddLista" class="btn btn-primary mt 3">Zapisz</button>
+<button @onclick="AddSamochod" class="btn btn-primary mt 3">Zapisz</button>
 
 
 
 
 
 @code {
-    private List<ListaItem> Liście = new();
-    private string newLista;
+    private List<SamochodItem> Samochodzie = new();
+    private string newSamochod;
 
-    private void AddLista()
+    private void AddSamochod()
     {
-        if (!string.IsNullOrWhiteSpace(newLista))
+        if (!string.IsNullOrWhiteSpace(newSamochod))
         {
-            Liście.Add(new ListaItem { TYTUŁ = newLista });
-            newLista = string.Empty;
+            Samochodzie.Add(new SamochodItem { TYTUŁ = newSamochod });
+            newSamochod = string.Empty;
         }
     }
 }
