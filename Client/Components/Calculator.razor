@@ -1,0 +1,82 @@
+@inject IJSRuntime JS
+
+<br/>
+<hr/>
+<h3 class="@klasa">Kalkulator</h3>
+<p>@operationstring</p>
+<br/>
+<div class="form-group">
+    <label>Pierwsza liczba</label>
+    <input type="text" class="form-control" @bind-value="@pierwsza"/>
+</div>
+<div class="form-group mt-3">
+    <label>Druga liczba</label>
+    <input type="text" class="form-control" @bind-value="@druga"/>
+</div>
+<div class="form-group mt-3">
+    <button class="btn btn-primary" @onclick="Oblicz">Oblicz</button>
+</div>
+<br/>
+<h1>Wynik: @wynik</h1>
+<hr/>
+
+@code {
+
+    [Parameter] public string Operation { get; set; }
+
+    int pierwsza = 0;
+    int druga = 0;
+    double wynik = 0;
+    string operationstring;
+    string klasa;
+
+    protected override void OnInitialized()
+    {
+        if (Operation == "+")
+        {
+            operationstring = "dodawanie";
+            klasa = "black";
+        }        
+        else if (Operation == "-")
+        {
+            operationstring = "odejmowanie";
+            klasa = "red";
+        }  
+        else if (Operation == "*")
+        {
+            operationstring = "mnożenie";
+            klasa = "blue";
+        }         
+        else
+        {
+            operationstring = "dzielenie";
+            klasa = "green";
+        }
+            
+    }
+
+    
+
+    async Task Oblicz()
+    {
+        if (Operation == "+")
+            wynik = pierwsza + druga;
+        else if (Operation == "-")
+            wynik = pierwsza - druga;
+        else if (Operation == "*")
+            wynik = pierwsza * druga;
+        else
+        {
+            if (druga == 0)
+            {
+                await JS.InvokeVoidAsync("showAlert", pierwsza);
+                return;
+            }
+            wynik = Convert.ToDouble(pierwsza) / Convert.ToDouble(druga);
+            wynik = Math.Round(wynik, 3);
+        }
+            
+    }
+}
+
+
